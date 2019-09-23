@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS expenseDb;
+CREATE DATABASE expenseDb;
+
