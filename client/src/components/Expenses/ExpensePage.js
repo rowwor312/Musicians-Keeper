@@ -114,6 +114,7 @@ export default function ControlledExpansionPanels() {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
+      
     </div>
   );
 }
