@@ -1,0 +1,42 @@
+{
+    
+        "type": "HorizontalLayout",
+        "elements": [
+          {
+            "type": "Control",
+            "scope": "#/properties/date"
+          },
+          {
+            "type": "Control",
+            "scope": "#/properties/purchased_at"
+          }
+        ]
+      },
+      {
+        "type": "Control",
+        "scope": "#/properties/description",
+        "options": {
+            "multi": true
+        }
+      },
+      {
+        "type": "HorizontalLayout",
+        "elements": [
+          {
+           
+          },
+          {
+            "type": "Control",
+            "scope": "#/properties/amount_spent",
+            "rule": {
+                "effect": "HIDE",
+                "condition": {
+                   
+                    "expectedValue": ""
+                }
+            }
+          }
+        ]
+      }
+    ]
+  }
