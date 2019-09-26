@@ -58,7 +58,7 @@ export default function ControlledExpansionPanels() {
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     <Typography>
-                    <form>
+                        <form>
                             <label>
                                 Date:
     <input type="text" name="Date" />
@@ -76,7 +76,7 @@ export default function ControlledExpansionPanels() {
 
                             <input type="submit" value="Submit" />
                         </form>
-          </Typography>
+                    </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
             <ExpansionPanel expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
@@ -123,13 +123,14 @@ export default function ControlledExpansionPanels() {
                     id="panel3bh-header"
                 >
                     <Typography className={classes.heading}>Equipment</Typography>
-                    <Typography className={classes.secondaryHeading}>i.e.(Amps, Computer, Guitars, Drums, Keyboard, Recording Gear,Speakers note:if over 1,000 for item may depreciate)
-                        
+                    <Typography className={classes.secondaryHeading}>
+                        i.e.(Amps, Computer, Guitars, Drums, Keyboard, note:if over 1,000 for item may depreciate)
+
           </Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     <Typography>
-                    <form>
+                        <form>
                             <label>
                                 Date:
     <input type="text" name="Date" />
@@ -147,7 +148,7 @@ export default function ControlledExpansionPanels() {
 
                             <input type="submit" value="Submit" />
                         </form>
-          </Typography>
+                    </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
             <ExpansionPanel expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
@@ -156,13 +157,30 @@ export default function ControlledExpansionPanels() {
                     aria-controls="panel4bh-content"
                     id="panel4bh-header"
                 >
-                    <Typography className={classes.heading}>Personal data</Typography>
+                    <Typography className={classes.heading}>Insurance</Typography>
+                    i.e. (car insurace, gear insurance, disability insurance)
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     <Typography>
-                        Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
-                        vitae egestas augue. Duis vel est augue.
-          </Typography>
+                        <form>
+                            <label>
+                                Date:
+    <input type="text" name="Date" />
+
+                                Purchased Location
+    <input type="text" name="Purchased At" />
+
+                                Amount Spent
+    <input type="text" name="Purchased At" />
+
+
+
+                            </label>
+
+
+                            <input type="submit" value="Submit" />
+                        </form>
+                    </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
 
