@@ -4,6 +4,7 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const db = require("./models");
+const authenticationController = require("./controllers/authenticationController");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -17,6 +18,9 @@ if (process.env.NODE_ENV === "production") {
 app.get("/ping", (req, res) => {
   res.json({running: true});
 });
+
+app.post("/register", authenticationController.registerUser);
+app.post("/login", authenticationController.loginUser);
 
 // Send every other request to the React app
 // Define any API routes before this runs

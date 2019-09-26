@@ -19,13 +19,23 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@material-ui/core": "^4.4.3",
     "@material-ui/icons": "^4.4.3",
+=======
+    "bcrypt": "^3.0.6",
+>>>>>>> 8455af30c7362060e642b2b9924e8d082f715f5f
     "dotenv": "^8.1.0",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "mysql2": "^1.7.0",
+<<<<<<< HEAD
     "react-jsonschema-form": "^1.8.0",
+=======
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+>>>>>>> 8455af30c7362060e642b2b9924e8d082f715f5f
     "sequelize": "^5.19.0"
  
  
