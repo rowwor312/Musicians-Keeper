@@ -302,6 +302,78 @@ export default function ControlledExpansionPanels() {
                     </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
+            <ExpansionPanel expanded={expanded === 'panel22'} onChange={handleChange('panel22')}>
+                <ExpansionPanelSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel22bh-content"
+                    id="panel22bh-header"
+                >
+                    <Typography className={classes.heading}>Transportation</Typography>
+                    <Typography className={classes.secondaryHeading}> i.e. (Uber, Lyft, Taxi, Train)
+
+
+                    </Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    <Typography>
+                        <TextField className={classes.textField} label="Date" margin="normal" />
+                        <TextField className={classes.textField} label="Purchase Location" margin="normal" />
+                        <TextField className={classes.textField} label="Amount" margin="normal" />
+                        <Button variant="contained" color="black" margin="normal" className={classes.button} />
+
+
+                    </Typography>
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
+
+            <ExpansionPanel expanded={expanded === 'panel23'} onChange={handleChange('panel23')}>
+                <ExpansionPanelSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel23bh-content"
+                    id="panel23bh-header"
+                >
+                    <Typography className={classes.heading}>Travel</Typography>
+                    <Typography className={classes.secondaryHeading}> i.e. (Flights, Lodging, Subway)
+
+
+                    </Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    <Typography>
+                        <TextField className={classes.textField} label="Date" margin="normal" />
+                        <TextField className={classes.textField} label="Purchase Location" margin="normal" />
+                        <TextField className={classes.textField} label="Amount" margin="normal" />
+                        <Button variant="contained" color="black" margin="normal" className={classes.button} />
+
+
+                    </Typography>
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
+
+            <ExpansionPanel expanded={expanded === 'panel24'} onChange={handleChange('panel24')}>
+                <ExpansionPanelSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel24bh-content"
+                    id="panel24bh-header"
+                >
+                    <Typography className={classes.heading}>Wireless</Typography>
+                    <Typography className={classes.secondaryHeading}> i.e. (Cellular Phone, Internet)
+
+
+                    </Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    <Typography>
+                        <TextField className={classes.textField} label="Date" margin="normal" />
+                        <TextField className={classes.textField} label="Purchase Location" margin="normal" />
+                        <TextField className={classes.textField} label="Amount" margin="normal" />
+                        <Button variant="contained" color="black" margin="normal" className={classes.button} />
+
+
+                    </Typography>
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
+
 
         </div>
 
