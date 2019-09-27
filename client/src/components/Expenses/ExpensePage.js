@@ -21,6 +21,10 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { TextField } from '@material-ui/core';
+import SaveIcon from '@material-ui/icons/Save';
+import Button from '@material-ui/core/Button';
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -35,6 +39,11 @@ const useStyles = makeStyles(theme => ({
         fontSize: theme.typography.pxToRem(15),
         color: theme.palette.text.secondary,
     },
+    textField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: 200,
+    }
 }));
 
 export default function ControlledExpansionPanels() {
@@ -57,26 +66,12 @@ export default function ControlledExpansionPanels() {
                     <Typography className={classes.secondaryHeading}>i.e.(Social media ads, Posters, Flyers, PR, Business Cards, Stage Banner </Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                    <Typography>
-                        <form>
-                            <label>
-                                Date:
-    <input type="text" name="Date" />
-
-                                Purchased Location
-    <input type="text" name="Purchased At" />
-
-                                Amount Spent
-    <input type="text" name="Purchased At" />
+                    <TextField className={classes.textField} label="Date" margin="normal" />
+                    <TextField className={classes.textField} label="Purchase Location" margin="normal" />
+                    <TextField className={classes.textField} label="Amount" margin="normal" />
+                    <Button variant="contained" color="black" margin="normal" className={classes.button} />
 
 
-
-                            </label>
-
-
-                            <input type="submit" value="Submit" />
-                        </form>
-                    </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
             <ExpansionPanel expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
@@ -93,24 +88,10 @@ export default function ControlledExpansionPanels() {
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     <Typography>
-                        <form>
-                            <label>
-                                Date:
-    <input type="text" name="Date" />
-
-                                Purchased Location
-    <input type="text" name="Purchased At" />
-
-                                Amount Spent
-    <input type="text" name="Purchased At" />
-
-
-
-                            </label>
-
-
-                            <input type="submit" value="Submit" />
-                        </form>
+                        <TextField className={classes.textField} label="Date" margin="normal" />
+                        <TextField className={classes.textField} label="Purchase Location" margin="normal" />
+                        <TextField className={classes.textField} label="Amount" margin="normal" />
+                        <Button variant="contained" color="black" margin="normal" className={classes.button} />
 
 
                     </Typography>
@@ -130,24 +111,10 @@ export default function ControlledExpansionPanels() {
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     <Typography>
-                        <form>
-                            <label>
-                                Date:
-    <input type="text" name="Date" />
-
-                                Purchased Location
-    <input type="text" name="Purchased At" />
-
-                                Amount Spent
-    <input type="text" name="Purchased At" />
-
-
-
-                            </label>
-
-
-                            <input type="submit" value="Submit" />
-                        </form>
+                        <TextField className={classes.textField} label="Date" margin="normal" />
+                        <TextField className={classes.textField} label="Purchase Location" margin="normal" />
+                        <TextField className={classes.textField} label="Amount" margin="normal" />
+                        <Button variant="contained" color="black" margin="normal" className={classes.button} />
                     </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
@@ -162,28 +129,158 @@ export default function ControlledExpansionPanels() {
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     <Typography>
-                        <form>
-                            <label>
-                                Date:
-    <input type="text" name="Date" />
+                        <TextField className={classes.textField} label="Date" margin="normal" />
+                        <TextField className={classes.textField} label="Purchase Location" margin="normal" />
+                        <TextField className={classes.textField} label="Amount" margin="normal" />
+                        <Button variant="contained" color="black" margin="normal" className={classes.button} />
+                    </Typography>
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
+            <ExpansionPanel expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
+                <ExpansionPanelSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel5bh-content"
+                    id="panel5bh-header"
+                >
+                    <Typography className={classes.heading}>Legal and Professional </Typography>
+                    <Typography className={classes.secondaryHeading}> i.e. (Tax Preperation, Bookkeeping, Lawyer fees)
 
-                                Purchased Location
-    <input type="text" name="Purchased At" />
 
-                                Amount Spent
-    <input type="text" name="Purchased At" />
+                    </Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    <Typography>
+                        <TextField className={classes.textField} label="Date" margin="normal" />
+                        <TextField className={classes.textField} label="Purchase Location" margin="normal" />
+                        <TextField className={classes.textField} label="Amount" margin="normal" />
+                        <Button variant="contained" color="black" margin="normal" className={classes.button} />
 
 
+                    </Typography>
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
+            <ExpansionPanel expanded={expanded === 'panel6'} onChange={handleChange('panel6')}>
+                <ExpansionPanelSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel6bh-content"
+                    id="panel6bh-header"
+                >
+                    <Typography className={classes.heading}>Meals and Entertainment</Typography>
+                    <Typography className={classes.secondaryHeading}> i.e. (Meals with clients, Networking functions, Concerts)
 
-                            </label>
+
+                    </Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    <Typography>
+                        <TextField className={classes.textField} label="Date" margin="normal" />
+                        <TextField className={classes.textField} label="Purchase Location" margin="normal" />
+                        <TextField className={classes.textField} label="Amount" margin="normal" />
+                        <Button variant="contained" color="black" margin="normal" className={classes.button} />
 
 
-                            <input type="submit" value="Submit" />
-                        </form>
                     </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
 
+
+            <ExpansionPanel expanded={expanded === 'panel7'} onChange={handleChange('panel7')}>
+                <ExpansionPanelSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel7bh-content"
+                    id="panel7bh-header"
+                >
+                    <Typography className={classes.heading}>Office Expenses</Typography>
+                    <Typography className={classes.secondaryHeading}> i.e. (Paper, Ink, Printer, Envelopes, Organzational items)
+
+
+                    </Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    <Typography>
+                        <TextField className={classes.textField} label="Date" margin="normal" />
+                        <TextField className={classes.textField} label="Purchase Location" margin="normal" />
+                        <TextField className={classes.textField} label="Amount" margin="normal" />
+                        <Button variant="contained" color="black" margin="normal" className={classes.button} />
+
+
+                    </Typography>
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
+
+            <ExpansionPanel expanded={expanded === 'panel8'} onChange={handleChange('panel8')}>
+                <ExpansionPanelSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel8bh-content"
+                    id="panel6bh-header"
+                >
+                    <Typography className={classes.heading}>Per Diem Days</Typography>
+                    <Typography className={classes.secondaryHeading}> i.e. (Days spent overnight out of town more than 50 miles from home)
+
+
+                    </Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    <Typography>
+                        <TextField className={classes.textField} label="Date" margin="normal" />
+                        <TextField className={classes.textField} label="No of Days Inside United States" margin="normal" />
+                        <TextField className={classes.textField} label="No of Days Outside the United States" margin="normal" />
+                        <Button variant="contained" color="black" margin="normal" className={classes.button} />
+
+
+                    </Typography>
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
+
+            <ExpansionPanel expanded={expanded === 'panel9'} onChange={handleChange('panel9')}>
+                <ExpansionPanelSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel9bh-content"
+                    id="panel9bh-header"
+                >
+                    <Typography className={classes.heading}>Rental</Typography>
+                    <Typography className={classes.secondaryHeading}> i.e. (Rental equipment, Rental Car, Reharsal Space, Storage)
+
+
+                    </Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    <Typography>
+                        <TextField className={classes.textField} label="Date" margin="normal" />
+                        <TextField className={classes.textField} label="Purchase Location" margin="normal" />
+                        <TextField className={classes.textField} label="Amount" margin="normal" />
+                        <Button variant="contained" color="black" margin="normal" className={classes.button} />
+
+
+                    </Typography>
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
+            <ExpansionPanel expanded={expanded === 'panel20'} onChange={handleChange('panel20')}>
+                <ExpansionPanelSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel20bh-content"
+                    id="panel20bh-header"
+                >
+                    <Typography className={classes.heading}>Repairs</Typography>
+                    <Typography className={classes.secondaryHeading}> i.e. (Instrument repair, Equipment repair, Computer Repair, Auto Repair)
+
+
+                    </Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    <Typography>
+                        <TextField className={classes.textField} label="Date" margin="normal" />
+                        <TextField className={classes.textField} label="Purchase Location" margin="normal" />
+                        <TextField className={classes.textField} label="Amount" margin="normal" />
+                        <Button variant="contained" color="black" margin="normal" className={classes.button} />
+
+
+                    </Typography>
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
+
+
         </div>
+
     );
-}
+};
