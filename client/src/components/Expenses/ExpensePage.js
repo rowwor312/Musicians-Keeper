@@ -279,6 +279,29 @@ export default function ControlledExpansionPanels() {
                 </ExpansionPanelDetails>
             </ExpansionPanel>
 
+            <ExpansionPanel expanded={expanded === 'panel21'} onChange={handleChange('panel21')}>
+                <ExpansionPanelSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel21bh-content"
+                    id="panel21bh-header"
+                >
+                    <Typography className={classes.heading}>Supplies</Typography>
+                    <Typography className={classes.secondaryHeading}> i.e. (Picks, strings, drum heads, drum sticks)
+
+
+                    </Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    <Typography>
+                        <TextField className={classes.textField} label="Date" margin="normal" />
+                        <TextField className={classes.textField} label="Purchase Location" margin="normal" />
+                        <TextField className={classes.textField} label="Amount" margin="normal" />
+                        <Button variant="contained" color="black" margin="normal" className={classes.button} />
+
+
+                    </Typography>
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
 
         </div>
 
