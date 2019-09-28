@@ -2,8 +2,10 @@ module.exports = function(sequelize, DataTypes) {
   let Category = sequelize.define("Category", {
     name: {
       type: DataTypes.STRING,
-      allowNull: false
-    }
+      allowNull: false,
+      unique: true
+    },
+    description: DataTypes.STRING
   });
 
   Category.associate = function(models) {
