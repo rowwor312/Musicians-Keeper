@@ -55,7 +55,8 @@ export default function ControlledExpansionPanels() {
                     <Typography className={classes.heading}>Advertising</Typography>
                     <Typography className={classes.secondaryHeading}>i.e.(Social media ads, Posters, Flyers, PR, Business Cards, Stage Banner </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
+                <ExpansionPanelDetails className = {"customFormContainer"}> 
+                    
                     <TextField className={classes.textField} label="Date" margin="normal" />
                     <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                     <TextField className={classes.textField} label="Amount" margin="normal" />
@@ -76,7 +77,7 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
+                <ExpansionPanelDetails className = {"customFormContainer"}> 
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
@@ -99,7 +100,7 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
+                <ExpansionPanelDetails className = {"customFormContainer"}> 
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
@@ -122,7 +123,7 @@ export default function ControlledExpansionPanels() {
 
           </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
+                <ExpansionPanelDetails className = {"customFormContainer"}> 
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
@@ -140,7 +141,7 @@ export default function ControlledExpansionPanels() {
                     <Typography className={classes.heading}>Insurance</Typography>
                     i.e. (car insurace, gear insurance, disability insurance)
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
+                <ExpansionPanelDetails className = {"customFormContainer"}> 
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
@@ -161,7 +162,7 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
+                <ExpansionPanelDetails className = {"customFormContainer"}> 
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
@@ -184,7 +185,7 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
+                <ExpansionPanelDetails className = {"customFormContainer"}> 
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
@@ -209,7 +210,7 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
+                <ExpansionPanelDetails className = {"customFormContainer"}> 
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
@@ -233,7 +234,7 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
+                <ExpansionPanelDetails className = {"customFormContainer"}> 
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="No of Days Inside United States" margin="normal" />
@@ -257,7 +258,7 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
+                <ExpansionPanelDetails className = {"customFormContainer"}> 
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
@@ -280,7 +281,7 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
+                <ExpansionPanelDetails className = {"customFormContainer"}> 
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
@@ -304,7 +305,7 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
+                <ExpansionPanelDetails className = {"customFormContainer"}> 
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
@@ -327,7 +328,7 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
+                <ExpansionPanelDetails className = {"customFormContainer"}> 
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
@@ -351,7 +352,7 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
+                <ExpansionPanelDetails className = {"customFormContainer"}> 
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
@@ -375,7 +376,7 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
+                <ExpansionPanelDetails className = {"customFormContainer"}> 
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />

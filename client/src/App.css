@@ -9,7 +9,7 @@
 
 .App-header {
   /* //background-color: #222; */
-  height: 150px;
+  height: 64px;
   color: white;
 }
 
@@ -25,4 +25,9 @@
 .formButton {
   height: 63px !important;
   
+}
+
+.customFormContainer {
+  width: 70%;
+  margin:auto;
 }
