@@ -42,6 +42,10 @@ export default function ControlledExpansionPanels() {
 
     };
 
+    const handleInput = (type) => {
+        console.log("something",type);
+    }
+
     return (
 
 
@@ -60,7 +64,7 @@ export default function ControlledExpansionPanels() {
                     <TextField className={classes.textField} label="Date" margin="normal" />
                     <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                     <TextField className={classes.textField} label="Amount" margin="normal" />
-                    <Button variant="contained" color="black" margin="normal" className={`${classes.button}`+" formButton"} />
+                    <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("Advertising")}} className={`${classes.button}`+" formButton"} />
 
 
                 </ExpansionPanelDetails>
