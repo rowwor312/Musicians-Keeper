@@ -9,8 +9,10 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles(theme => ({
    
-    width: '100%',
- 
+    Toolbar: {
+        width: 100,
+    },
+      
     root: {
     flexGrow: 2,
   },
