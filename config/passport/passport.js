@@ -4,6 +4,7 @@ const BCRYPT_SALT_ROUNDS = 10;
 
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const db = require("../../models");
 
 passport.use(
@@ -57,6 +58,34 @@ passport.use(
 
         return done(null, user);
       });
+    });
+  })
+);
+
+passport.use(
+  "google",
+  new GoogleStrategy({
+    clientID: process.env.GCLIENT_ID,
+    clientSecret: process.env.GCLIENT_SECRET,
+    callbackURL: "/auth/google/callback",
+    proxy: true
+  },
+  (accessToken, refreshToken, profile, done) => {
+    console.log(profile);
+    db.User.findOne({ where: { google: profile.id} }).then(user => {
+      if(user)
+        return done(null, user);
+      else {
+        db.User.create({
+          username: profile.displayName,
+          firstName: profile.name.givenName,
+          lastName: profile.name.familyName,
+          google: profile.id,
+          email: profile.emails[0].value
+        }).then(newUser => {
+          return done(null, newUser);
+        });
+      }
     });
   })
 );

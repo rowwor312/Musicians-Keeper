@@ -3,13 +3,18 @@ import React from "react";
 
 
 class Pinger extends React.Component{
-    componentDidMount(){
-        axios.get("/ping").then(res =>{
+
+    ping = (e) => {
+        axios.get("/api/ping").then(res =>{
             console.log(res);
+        }).catch(err =>{
+            console.log(err);
         })
     }
+
+
     render(){
-        return(<div>Pinger</div>)
+        return(<div><button onClick={this.ping}>Pinger</button></div>)
     }
 }
 export default Pinger;

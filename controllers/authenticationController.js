@@ -35,5 +35,22 @@ module.exports = {
         });
       }
     })(req, res, next);
+  },
+  googleAuth: (req, res, next) => {
+    passport.authenticate("google", {
+      scope: [
+        "https://www.googleapis.com/auth/userinfo.profile",
+        "https://www.googleapis.com/auth/userinfo.email"
+      ]
+    })(req, res, next);
+  },
+  googleCallback: (req, res, next) => {
+    passport.authenticate("google", (err, user, info) => {
+      const token = jwt.sign({ id: user.id }, jwtConfig.secret, {
+        expiresIn: 60 * 60,
+      });
+      res.cookie("JWT", token);
+      res.redirect("/expenses");
+    })(req, res, next);
   }
 };
