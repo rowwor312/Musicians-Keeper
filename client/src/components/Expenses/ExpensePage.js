@@ -86,8 +86,7 @@ export default function ControlledExpansionPanels() {
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" className={`${classes.button}`+" formButton"} />
-
+                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("ContractLabor")}} className={`${classes.button}`+" formButton"} />
 
                     </Typography>
                 </ExpansionPanelDetails>
@@ -109,8 +108,7 @@ export default function ControlledExpansionPanels() {
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" className={`${classes.button}`+" formButton"} />
-
+                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("Dues")}} className={`${classes.button}`+" formButton"} />
 
                     </Typography>
                 </ExpansionPanelDetails>
@@ -132,7 +130,7 @@ export default function ControlledExpansionPanels() {
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" className={`${classes.button}`+" formButton"} />
+                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("Equipment")}} className={`${classes.button}`+" formButton"} />
                     </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
@@ -150,7 +148,7 @@ export default function ControlledExpansionPanels() {
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" className={`${classes.button}`+" formButton"} />
+                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("Insurance")}} className={`${classes.button}`+" formButton"} />
                     </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
@@ -171,8 +169,7 @@ export default function ControlledExpansionPanels() {
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" className= {`${classes.button}`+" formButton"}/>
-
+                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("LegalAndProfessional")}} className={`${classes.button}`+" formButton"} />
 
                     </Typography>
                 </ExpansionPanelDetails>
@@ -194,8 +191,7 @@ export default function ControlledExpansionPanels() {
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" className={`${classes.button}`+" formButton"} />
-
+                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("MealsAndEntertainment")}} className={`${classes.button}`+" formButton"} />
 
                     </Typography>
                 </ExpansionPanelDetails>
@@ -219,7 +215,7 @@ export default function ControlledExpansionPanels() {
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" className={`${classes.button}`+" formButton"} />
+                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("OfficeExpenses")}} className={`${classes.button}`+" formButton"} />
 
 
                     </Typography>
@@ -243,7 +239,7 @@ export default function ControlledExpansionPanels() {
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="No of Days Inside United States" margin="normal" />
                         <TextField className={classes.textField} label="No of Days Outside the United States" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" className={`${classes.button}`+" formButton"} />
+                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("PerDiemDays")}} className={`${classes.button}`+" formButton"} />
 
 
                     </Typography>
@@ -267,8 +263,7 @@ export default function ControlledExpansionPanels() {
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" className={`${classes.button}`+" formButton"} />
-
+                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("Rental")}} className={`${classes.button}`+" formButton"} />
 
                     </Typography>
                 </ExpansionPanelDetails>
@@ -290,8 +285,7 @@ export default function ControlledExpansionPanels() {
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" className={`${classes.button}`+" formButton"} />
-
+                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("Repairs")}} className={`${classes.button}`+" formButton"} />
 
                     </Typography>
                 </ExpansionPanelDetails>
@@ -314,8 +308,7 @@ export default function ControlledExpansionPanels() {
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" className={`${classes.button}`+" formButton"} />
-
+                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("Supplies")}} className={`${classes.button}`+" formButton"} />
 
                     </Typography>
                 </ExpansionPanelDetails>
@@ -337,8 +330,7 @@ export default function ControlledExpansionPanels() {
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" className={`${classes.button}`+" formButton"} />
-
+                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("Transportation")}} className={`${classes.button}`+" formButton"} />
 
                     </Typography>
                 </ExpansionPanelDetails>
@@ -361,8 +353,7 @@ export default function ControlledExpansionPanels() {
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" className= {`${classes.button}`+" formButton"}/>
-
+                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("Travel")}} className={`${classes.button}`+" formButton"} />
 
                     </Typography>
                 </ExpansionPanelDetails>
@@ -385,7 +376,7 @@ export default function ControlledExpansionPanels() {
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" className={`${classes.button}`+" formButton"} />
+                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("Wireless")}} className={`${classes.button}`+" formButton"} />
 
 
                     </Typography>
