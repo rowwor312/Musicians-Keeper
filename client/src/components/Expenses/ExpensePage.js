@@ -32,15 +32,19 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
+
 export default function ControlledExpansionPanels() {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
 
     const handleChange = panel => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
+
     };
 
     return (
+
+        
         <div className={classes.root}>
             <ExpansionPanel expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <ExpansionPanelSummary
@@ -68,6 +72,29 @@ export default function ControlledExpansionPanels() {
                 >
                     <Typography className={classes.heading}>Contract Labor</Typography>
                     <Typography className={classes.secondaryHeading}> i.e. (Pay to band members, Session Artist, Production, Studio time. Over 600 will require 1099 filing)
+
+
+                    </Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    <Typography>
+                        <TextField className={classes.textField} label="Date" margin="normal" />
+                        <TextField className={classes.textField} label="Purchase Location" margin="normal" />
+                        <TextField className={classes.textField} label="Amount" margin="normal" />
+                        <Button variant="contained" color="black" margin="normal" className={classes.button} />
+
+
+                    </Typography>
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
+            <ExpansionPanel expanded={expanded === 'panel02'} onChange={handleChange('panel02')}>
+                <ExpansionPanelSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel2bh-content"
+                    id="panel02bh-header"
+                >
+                    <Typography className={classes.heading}>Dues</Typography>
+                    <Typography className={classes.secondaryHeading}> i.e. (Spotify, Itunes, Software Subscriptions, DAW, Monthly App Subscriptions)
 
 
                     </Typography>
