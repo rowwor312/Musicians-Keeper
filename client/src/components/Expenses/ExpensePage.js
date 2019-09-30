@@ -43,7 +43,7 @@ export default function ControlledExpansionPanels() {
     };
 
     const handleInput = (type) => {
-        console.log("something",type);
+        console.log("something", type);
     }
 
     return (
@@ -59,12 +59,12 @@ export default function ControlledExpansionPanels() {
                     <Typography className={classes.heading}>Advertising</Typography>
                     <Typography className={classes.secondaryHeading}>i.e.(Social media ads, Posters, Flyers, PR, Business Cards, Stage Banner </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails className = {"customFormContainer"}> 
-                    
+                <ExpansionPanelDetails className={"customFormContainer"}>
+
                     <TextField className={classes.textField} label="Date" margin="normal" />
                     <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                     <TextField className={classes.textField} label="Amount" margin="normal" />
-                    <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("Advertising")}} className={`${classes.button}`+" formButton"} />
+                    <Button variant="contained" color="black" margin="normal" onClick={() => { handleInput("Advertising") }} className={`${classes.button}` + " formButton"} />
 
 
                 </ExpansionPanelDetails>
@@ -81,12 +81,12 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails className = {"customFormContainer"}> 
+                <ExpansionPanelDetails className={"customFormContainer"}>
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("ContractLabor")}} className={`${classes.button}`+" formButton"} />
+                        <Button variant="contained" color="black" margin="normal" onClick={() => { handleInput("ContractLabor") }} className={`${classes.button}` + " formButton"} />
 
                     </Typography>
                 </ExpansionPanelDetails>
@@ -103,12 +103,12 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails className = {"customFormContainer"}> 
+                <ExpansionPanelDetails className={"customFormContainer"}>
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("Dues")}} className={`${classes.button}`+" formButton"} />
+                        <Button variant="contained" color="black" margin="normal" onClick={() => { handleInput("Dues") }} className={`${classes.button}` + " formButton"} />
 
                     </Typography>
                 </ExpansionPanelDetails>
@@ -125,12 +125,12 @@ export default function ControlledExpansionPanels() {
 
           </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails className = {"customFormContainer"}> 
+                <ExpansionPanelDetails className={"customFormContainer"}>
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("Equipment")}} className={`${classes.button}`+" formButton"} />
+                        <Button variant="contained" color="black" margin="normal" onClick={() => { handleInput("Equipment") }} className={`${classes.button}` + " formButton"} />
                     </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
@@ -143,12 +143,12 @@ export default function ControlledExpansionPanels() {
                     <Typography className={classes.heading}>Insurance</Typography>
                     i.e. (car insurace, gear insurance, disability insurance)
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails className = {"customFormContainer"}> 
+                <ExpansionPanelDetails className={"customFormContainer"}>
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("Insurance")}} className={`${classes.button}`+" formButton"} />
+                        <Button variant="contained" color="black" margin="normal" onClick={() => { handleInput("Insurance") }} className={`${classes.button}` + " formButton"} />
                     </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
@@ -164,12 +164,12 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails className = {"customFormContainer"}> 
+                <ExpansionPanelDetails className={"customFormContainer"}>
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("LegalAndProfessional")}} className={`${classes.button}`+" formButton"} />
+                        <Button variant="contained" color="black" margin="normal" onClick={() => { handleInput("LegalAndProfessional") }} className={`${classes.button}` + " formButton"} />
 
                     </Typography>
                 </ExpansionPanelDetails>
@@ -186,12 +186,12 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails className = {"customFormContainer"}> 
+                <ExpansionPanelDetails className={"customFormContainer"}>
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("MealsAndEntertainment")}} className={`${classes.button}`+" formButton"} />
+                        <Button variant="contained" color="black" margin="normal" onClick={() => { handleInput("MealsAndEntertainment") }} className={`${classes.button}` + " formButton"} />
 
                     </Typography>
                 </ExpansionPanelDetails>
@@ -210,12 +210,12 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails className = {"customFormContainer"}> 
+                <ExpansionPanelDetails className={"customFormContainer"}>
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("OfficeExpenses")}} className={`${classes.button}`+" formButton"} />
+                        <Button variant="contained" color="black" margin="normal" onClick={() => { handleInput("OfficeExpenses") }} className={`${classes.button}` + " formButton"} />
 
 
                     </Typography>
@@ -234,12 +234,12 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails className = {"customFormContainer"}> 
+                <ExpansionPanelDetails className={"customFormContainer"}>
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="No of Days Inside United States" margin="normal" />
                         <TextField className={classes.textField} label="No of Days Outside the United States" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("PerDiemDays")}} className={`${classes.button}`+" formButton"} />
+                        <Button variant="contained" color="black" margin="normal" onClick={() => { handleInput("PerDiemDays") }} className={`${classes.button}` + " formButton"} />
 
 
                     </Typography>
@@ -258,12 +258,12 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails className = {"customFormContainer"}> 
+                <ExpansionPanelDetails className={"customFormContainer"}>
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("Rental")}} className={`${classes.button}`+" formButton"} />
+                        <Button variant="contained" color="black" margin="normal" onClick={() => { handleInput("Rental") }} className={`${classes.button}` + " formButton"} />
 
                     </Typography>
                 </ExpansionPanelDetails>
@@ -280,12 +280,12 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails className = {"customFormContainer"}> 
+                <ExpansionPanelDetails className={"customFormContainer"}>
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("Repairs")}} className={`${classes.button}`+" formButton"} />
+                        <Button variant="contained" color="black" margin="normal" onClick={() => { handleInput("Repairs") }} className={`${classes.button}` + " formButton"} />
 
                     </Typography>
                 </ExpansionPanelDetails>
@@ -303,12 +303,12 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails className = {"customFormContainer"}> 
+                <ExpansionPanelDetails className={"customFormContainer"}>
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("Supplies")}} className={`${classes.button}`+" formButton"} />
+                        <Button variant="contained" color="black" margin="normal" onClick={() => { handleInput("Supplies") }} className={`${classes.button}` + " formButton"} />
 
                     </Typography>
                 </ExpansionPanelDetails>
@@ -325,12 +325,12 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails className = {"customFormContainer"}> 
+                <ExpansionPanelDetails className={"customFormContainer"}>
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("Transportation")}} className={`${classes.button}`+" formButton"} />
+                        <Button variant="contained" color="black" margin="normal" onClick={() => { handleInput("Transportation") }} className={`${classes.button}` + " formButton"} />
 
                     </Typography>
                 </ExpansionPanelDetails>
@@ -348,12 +348,12 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails className = {"customFormContainer"}> 
+                <ExpansionPanelDetails className={"customFormContainer"}>
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("Travel")}} className={`${classes.button}`+" formButton"} />
+                        <Button variant="contained" color="black" margin="normal" onClick={() => { handleInput("Travel") }} className={`${classes.button}` + " formButton"} />
 
                     </Typography>
                 </ExpansionPanelDetails>
@@ -371,12 +371,12 @@ export default function ControlledExpansionPanels() {
 
                     </Typography>
                 </ExpansionPanelSummary>
-                <ExpansionPanelDetails className = {"customFormContainer"}> 
+                <ExpansionPanelDetails className={"customFormContainer"}>
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
                         <TextField className={classes.textField} label="Purchase Location" margin="normal" />
                         <TextField className={classes.textField} label="Amount" margin="normal" />
-                        <Button variant="contained" color="black" margin="normal" onClick={()=>{handleInput("Wireless")}} className={`${classes.button}`+" formButton"} />
+                        <Button variant="contained" color="black" margin="normal" onClick={() => { handleInput("Wireless") }} className={`${classes.button}` + " formButton"} />
 
 
                     </Typography>
