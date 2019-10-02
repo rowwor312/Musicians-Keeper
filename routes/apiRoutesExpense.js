@@ -17,7 +17,7 @@ module.exports = function(app) {
   app.get("/api/expense/", jwtVerifier.confirmToken, jwtVerifier.verifyToken, function(req, res) {
     db.Category.findAll({
       include: [
-      { model: db.Expense, where: { UserId: req.userId }}
+      { model: db.Expense, required: false, where: { UserId: req.userId }}
    ]})
       .then(function(dbExpense) {
         res.json(dbExpense);
