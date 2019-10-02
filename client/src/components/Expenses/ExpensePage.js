@@ -141,8 +141,10 @@ export default function ControlledExpansionPanels() {
                     id="panel4bh-header"
                 >
                     <Typography className={classes.heading}>Insurance</Typography>
-                    i.e. ( car insurance, gear insurance, disability insurance )
+                    <Typography className={classes.secondaryHeading}>    i.e. ( car insurance, gear insurance, disability insurance )
+               </Typography>
                 </ExpansionPanelSummary>
+
                 <ExpansionPanelDetails className={"customFormContainer"}>
                     <Typography>
                         <TextField className={classes.textField} label="Date" margin="normal" />
