@@ -141,7 +141,7 @@ export default function ControlledExpansionPanels() {
                     id="panel4bh-header"
                 >
                     <Typography className={classes.heading}>Insurance</Typography>
-                    i.e. (car insurace, gear insurance, disability insurance)
+                    i.e. ( car insurance, gear insurance, disability insurance )
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails className={"customFormContainer"}>
                     <Typography>
