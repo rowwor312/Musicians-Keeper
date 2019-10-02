@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
@@ -403,31 +401,32 @@ componentDidMount() {
         { headers: { Authorization: `JWT ${accessString}` } }).then(res => {
             this.setState({ expenses: res.data })
         })
-}
-onValueChange = (event) => {
-    const { name, value } = event.target
-    this.setState({ [name]: value })
-}
-    
-       
-            
-        
-
-onButtonSubmit = (event) => {
-    event.preventDefault();
-    const accessString = localStorage.getItem('JWT');
-    axios.post("/api/expenses", {
-        date: this.state.date,
-        name: this.state.name,
-        amount: this.state.amount
-    },
-{
+    // }
+    onValueChange = (event) => {
+        const { name, value } = event.target
+        this.setState({ [name]: value })
+    }
 
 
-            headers: {
-                headers: { Authorization: `JWT ${accessString}` }
-            }}).then(res => {
+    onButtonSubmit = (event) => {
+        event.preventDefault();
+        const accessString = localStorage.getItem('JWT');
+        axios.post("/api/expenses", {
+            date: this.state.date,
+            name: this.state.name,
+            amount: this.state.amount
+        },
+            {
+
+
+                headers: {
+                    headers: { Authorization: `JWT ${accessString}` }
+                }
+            }).then(res => {
                 let newExpenses = this.state.expenses.concat([res.data])
                 this.setState({ expenses: newExpenses, date: "", purchasedLocation: "", amount: "" })
 
-            })};
+            })
+    };
+
+}
