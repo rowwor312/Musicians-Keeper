@@ -36,6 +36,8 @@ app.post("/login", authenticationController.loginUser);
 app.get("/auth/google", authenticationController.googleAuth);
 app.get("/auth/google/callback", authenticationController.googleCallback);
 
+require("./routes/apiRoutesExpense")(app);
+
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
