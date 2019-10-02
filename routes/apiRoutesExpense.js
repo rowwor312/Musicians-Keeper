@@ -6,51 +6,33 @@
 // =============================================================
 
 // Requiring our Todo model
-var db = require("../models");
+let db = require("../models");
+const jwtVerifier = require("../config/passport/jwt");
 
 // Routes
 // =============================================================
 module.exports = function(app) {
 
   // GET route for getting all of the expenses
-  app.get("/api/expense/", function(req, res) {
-    db.Expense.findAll({})
-      .then(function(dbExpense) {
-        res.json(dbExpense);
-      });
-  });
-
-  // Get route for returning posts of a specific expense
-  app.get("/api/expense/name/:name", function(req, res) {
-    db.Expense.findAll({
-      where: {
-        name: req.params.name
-      }
-    })
-      .then(function(dbName) {
-        res.json(dbName);
-      });
-  });
-
-  // Get route for retrieving a single expense
-  app.get("/api/expense/:id", function(req, res) {
-    db.Expense.findOne({
-      where: {
-        id: req.params.id
-      }
-    })
+  app.get("/api/expense/", jwtVerifier.confirmToken, jwtVerifier.verifyToken, function(req, res) {
+    db.Category.findAll({
+      include: [
+      { model: db.Expense, where: { UserId: req.userId }}
+   ]})
       .then(function(dbExpense) {
         res.json(dbExpense);
       });
   });
 
   // POST route for saving a new expense
-  app.post("/api/expense", function(req, res) {
+  app.post("/api/expense", jwtVerifier.confirmToken, jwtVerifier.verifyToken, function(req, res) {
     console.log(req.body);
     db.Expense.create({
       date: req.body.date,
       amount: req.body.amount,
-      name: req.body.name
+      name: req.body.name,
+      UserId: req.userId,
+      CategoryId: req.body.categoryId
     })
       .then(function(dbExpense) {
         res.json(dbExpense);
@@ -58,10 +40,11 @@ module.exports = function(app) {
   });
 
   // DELETE route for deleting expenses
-  app.delete("/api/expense/:id", function(req, res) {
-    db.Post.destroy({
+  app.delete("/api/expense/:id", jwtVerifier.confirmToken, jwtVerifier.verifyToken, function(req, res) {
+    db.Expense.destroy({
       where: {
-        id: req.params.id
+        id: req.params.id,
+        UserId: req.userId
       }
     })
       .then(function(dbExpense) {
@@ -69,16 +52,4 @@ module.exports = function(app) {
       });
   });
 
-  // PUT route for updating posts
-  app.put("/api/expense", function(req, res) {
-    db.Expense.update(req.body,
-      {
-        where: {
-          id: req.body.id
-        }
-      })
-      .then(function(dbExpense) {
-        res.json(dbExpense);
-      });
-  });
 };
