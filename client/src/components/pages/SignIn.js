@@ -109,15 +109,6 @@ export default function SignInSide() {
 
             <a href="/auth/google" class="button">Sign In With Google</a>
 
-            {/* <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Sign In With Google
-            </Button> */}
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">

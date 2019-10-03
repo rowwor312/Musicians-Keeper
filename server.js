@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
+const cors = require("cors");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const db = require("./models");
@@ -9,18 +10,33 @@ const authenticationController = require("./controllers/authenticationController
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use("*", (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3001");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  res.header("Access-Control-Allow-Credentials", true);
+  next(); 
+});
+
+app.options("*", cors());
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
 // Define API routes here
-app.get("/ping", (req, res) => {
+app.get("/api/ping", (req, res) => {
   res.json({running: true});
 });
 
 app.post("/register", authenticationController.registerUser);
 app.post("/login", authenticationController.loginUser);
+app.get("/auth/google", authenticationController.googleAuth);
+app.get("/auth/google/callback", authenticationController.googleCallback);
+
+require("./routes/apiRoutesExpense")(app);
 
 // Send every other request to the React app
 // Define any API routes before this runs

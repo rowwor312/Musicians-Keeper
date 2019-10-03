@@ -26,6 +26,31 @@ function Copyright() {
   );
 }
 
+// handleSubmit = (e) => {
+//   e.preventDefault(); 
+//   firstName: document.querySelector("#firstName").value,
+// 	lastName: "",
+// 	username: "",
+// 	password: "",
+// 	email: "",
+// 	address: ""
+//   })
+//   axios.post("/register") 
+//  .then((response) => {
+//     dispatch({
+//       type: FOUND_USER,
+//       data: response.data[0]
+//     })
+//   })
+//   .catch((error) => {
+//     dispatch({
+//       type: username_or_password_incorrect 
+//     })
+//   })
+// }
+
+
+
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
@@ -105,6 +130,17 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
+                id="username"
+                label="Username"
+                name="email"
+                autoComplete="email"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
                 name="password"
                 label="Password"
                 type="password"
@@ -115,7 +151,7 @@ export default function SignUp() {
             <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
+                label="I want to receive marketing promotions and updates via email."
               />
             </Grid>
           </Grid>
