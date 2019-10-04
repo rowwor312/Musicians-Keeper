@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -8,6 +8,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { TextField } from '@material-ui/core';
 import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
+import axios from 'axios';
 
 
 const useStyles = makeStyles(theme => ({
@@ -30,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
- 
+
 export default function ControlledExpansionPanels() {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
@@ -44,6 +45,42 @@ export default function ControlledExpansionPanels() {
         console.log("something", type);
     }
 
+    useEffect(function onLoad() {
+        const accessString = localStorage.getItem('JWT');
+        axios.get("/api/expense",
+            { headers: { Authorization: `JWT ${accessString}` } }).then(res => {
+                console.log(res.data)
+                this.setState({ expenses: res.data })
+            })
+    
+        })
+
+    const setName = ((event) => {
+        const { name, value } = event.target
+        this.setState({ [name]: value })    
+    })
+    
+            //onButtonSubmit = (event) => {
+  const getJWT = ((event) => {
+        event.preventDefault();
+        const accessString = localStorage.getItem('JWT');
+        axios.post("/api/expenses", {
+                    date: this.state.date,
+                    name: this.state.name,
+                    amount: this.state.amount
+              },
+                    {
+    
+    
+                        headers: {
+                            headers: { Authorization: `JWT ${accessString}` }
+                        }
+                    }).then(res => {
+                        let newExpenses = this.state.expenses.concat([res.data])
+                        this.setState({ expenses: newExpenses, date: "", purchasedLocation: "", amount: "" })
+    
+    }) })
+
     return (
 
 
@@ -55,7 +92,7 @@ export default function ControlledExpansionPanels() {
                     id="panel1bh-header"
                 >
                     <Typography className={classes.heading}>Advertising</Typography>
-                    <Typography className={classes.secondaryHeading}>i.e.(Social media ads, Posters, Flyers, PR, Business Cards, Stage Banner </Typography>
+                    <Typography className={classes.secondaryHeading}>i.e.(Social media ads, Posters, Flyers, PR, Business Cards, Stage Banner) </Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails className={"customFormContainer"}>
 
@@ -395,38 +432,6 @@ export default function ControlledExpansionPanels() {
 
 };
 
-// componentDidMount() {
-//     const accessString = localStorage.getItem('JWT');
-//     axios.get("/api/expenses",
-//         { headers: { Authorization: `JWT ${accessString}` } }).then(res => {
-//             this.setState({ expenses: res.data })
-//         })
-//     // }
-//     onValueChange = (event) => {
-//         const { name, value } = event.target
-//         this.setState({ [name]: value })
-//     }
 
 
-//     onButtonSubmit = (event) => {
-//         event.preventDefault();
-//         const accessString = localStorage.getItem('JWT');
-//         axios.post("/api/expenses", {
-//             date: this.state.date,
-//             name: this.state.name,
-//             amount: this.state.amount
-//         },
-//             {
 
-
-//                 headers: {
-//                     headers: { Authorization: `JWT ${accessString}` }
-//                 }
-//             }).then(res => {
-//                 let newExpenses = this.state.expenses.concat([res.data])
-//                 this.setState({ expenses: newExpenses, date: "", purchasedLocation: "", amount: "" })
-
-//             })
-//     };
-
-// }
