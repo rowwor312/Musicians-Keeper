@@ -78,8 +78,21 @@ export default function ControlledExpansionPanels() {
                     }).then(res => {
                         let newExpenses = this.state.expenses.concat([res.data])
                         this.setState({ expenses: newExpenses, date: "", purchasedLocation: "", amount: "" })
+                        
+   
     
     }) })
+
+    // const saveProduct = ((product) => {
+    //     product.id = new Date().getTime();
+    //     this.setState((prevState) => {
+    //       let products = prevState.products;
+    //       products[product.id] = product;
+    //       return { products };
+    //     })
+
+    //     this.saveProduct = this.saveProduct.bind(this);
+    //     <ProductForm onSave={this.saveProduct} />
 
     return (
 
