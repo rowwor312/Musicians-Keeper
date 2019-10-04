@@ -12,6 +12,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import axios from "axios";
+import { withRouter } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -26,28 +28,7 @@ function Copyright() {
   );
 }
 
-// handleSubmit = (e) => {
-//   e.preventDefault(); 
-//   firstName: document.querySelector("#firstName").value,
-// 	lastName: "",
-// 	username: "",
-// 	password: "",
-// 	email: "",
-// 	address: ""
-//   })
-//   axios.post("/register") 
-//  .then((response) => {
-//     dispatch({
-//       type: FOUND_USER,
-//       data: response.data[0]
-//     })
-//   })
-//   .catch((error) => {
-//     dispatch({
-//       type: username_or_password_incorrect 
-//     })
-//   })
-// }
+
 
 
 
@@ -76,8 +57,26 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SignUp() {
+function SignUp(props) {
   const classes = useStyles();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  
+    const registerObj ={
+      firstName: document.querySelector("#firstName").value,
+      lastName: document.querySelector("#lastName").value,
+      username: document.querySelector("#username").value,
+      password: document.querySelector("#password").value,
+      email: document.querySelector("#email").value,
+    };
+    axios.post("/register", registerObj) 
+   .then((response) => {
+      props.history.push("/signin");
+    })
+    .catch((error) => {
+    })
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -161,6 +160,7 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={handleSubmit}
           >
             Sign Up
           </Button>
@@ -179,3 +179,5 @@ export default function SignUp() {
     </Container>
   );
 }
+
+export default withRouter(SignUp);

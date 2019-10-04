@@ -12,6 +12,9 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import axios from "axios";
+import Cookies from "js-cookie";
+import { withRouter } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -25,6 +28,8 @@ function Copyright() {
     </Typography>
   );
 }
+
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -55,10 +60,29 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SignInSide() {
+function SignIn(props) {
   const classes = useStyles();
 
+  const handleSubmit = (e) => {
+    e.preventDefault(); 
+  
+   const loginObj ={
+     username: document.querySelector("#username").value,
+     password: document.querySelector("#password").value,
+    };
+    axios.post("/login", loginObj) 
+   .then((response) => {
+        localStorage.setItem("JWT", "JWT " + response.data.token);
+
+        props.history.push("/expense");
+      })
+    .catch((error) => {
+      })
+  }
+
+
   return (
+    
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
@@ -76,8 +100,8 @@ export default function SignInSide() {
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
+              id="username"
+              label="Username"
               name="email"
               autoComplete="email"
               autoFocus
@@ -93,21 +117,22 @@ export default function SignInSide() {
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={handleSubmit}
             >
               Sign In
             </Button>
 
-            <a href="/auth/google" class="button">Sign In With Google</a>
+            <a href="/auth/google" className="button">Sign In With Google</a>
 
             <Grid container>
               <Grid item xs>
@@ -130,3 +155,5 @@ export default function SignInSide() {
     </Grid>
   );
 }
+
+export default withRouter(SignIn);
