@@ -71,7 +71,6 @@ passport.use(
     proxy: true
   },
   (accessToken, refreshToken, profile, done) => {
-    console.log(profile);
     db.User.findOne({ where: { google: profile.id} }).then(user => {
       if(user)
         return done(null, user);

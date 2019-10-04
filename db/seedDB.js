@@ -5,7 +5,7 @@ const db = require("../models");
 const categories = [
   {
     name: "Advertising",
-    description: "i.e. (Social Media Ads, Posters, Flyers, PR, Business Cards, Stage Banner"
+    description: "i.e. (Social Media Ads, Posters, Flyers, PR, Business Cards, Stage Banner)"
   },
   {
     name: "Contract Labor",
