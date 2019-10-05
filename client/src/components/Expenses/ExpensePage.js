@@ -10,6 +10,8 @@ import { TextField } from '@material-ui/core';
 import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
+import SpanningTable from '../SpanningTable';
+import Grid from '@material-ui/core/Grid';
 
 
 const useStyles = makeStyles(theme => ({
@@ -130,10 +132,17 @@ export default function ControlledExpansionPanels() {
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails className={"customFormContainer"}>
 
-                    <TextField id={"date" + ele.id} className={classes.textField} label="Date" margin="normal" />
-                    <TextField id={"name" + ele.id} className={classes.textField} label="Name" margin="normal" />
-                    <TextField id={"amount" + ele.id} className={classes.textField} label="Amount" margin="normal" />
-                    <Button variant="contained" color="black" margin="normal" onClick={() => { handleInput(ele.id) }} className={`${classes.button}` + " formButton"} />
+                    <Grid container>
+                        <Grid item xs={12}>
+                            <TextField id={"date" + ele.id} className={classes.textField} label="Date" margin="normal" />
+                            <TextField id={"name" + ele.id} className={classes.textField} label="Name" margin="normal" />
+                            <TextField id={"amount" + ele.id} className={classes.textField} label="Amount" margin="normal" />
+                            <Button variant="contained" color="black" margin="normal" onClick={() => { handleInput(ele.id) }} className={`${classes.button}` + " formButton"} />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <SpanningTable items={ele.Expenses} /> 
+                        </Grid>
+                    </Grid>
 
 
                 </ExpansionPanelDetails>
