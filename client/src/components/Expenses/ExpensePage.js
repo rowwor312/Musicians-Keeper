@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import Navbar from "../Navbar";
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { TextField } from '@material-ui/core';
@@ -98,6 +99,7 @@ export default function ControlledExpansionPanels() {
 
 
         <div className={classes.root}>
+            <Navbar />
             <ExpansionPanel expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <ExpansionPanelSummary
                     expandIcon={<ExpandMoreIcon />}

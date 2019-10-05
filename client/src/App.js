@@ -1,32 +1,21 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
-import Pinger from "./components/Pinger";
+import SignUp from "./components/pages/SignUp";
+import SignIn from "./components/pages/SignIn";
 import ControlledExpansionPanels from "./components/Expenses/ExpensePage";
-import Navbar from './components/Navbar';
-import ReactDOM from 'react-dom';
 
-ReactDOM.render(<Navbar />, document.querySelector('#root'));
-
-class App extends Component {
-  render() {
+function App() {
     return (
-
-      <div className="App">
-        <div className="App-header">
-         <Navbar/>
-          {/* <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-          <Pinger></Pinger> */}
-        </div>
-        
-        
-        <ControlledExpansionPanels />
-
+      <Router>
+      <div>
+        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/signin" component={SignIn} />
+        <Route exact path="/expense" component={ControlledExpansionPanels} />
       </div>
-
-    );
-  }
+    </Router>
+  );
 }
+
 
 export default App;

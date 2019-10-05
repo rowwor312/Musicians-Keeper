@@ -50,7 +50,7 @@ module.exports = {
         expiresIn: 60 * 60,
       });
       res.cookie("JWT", token);
-      res.redirect("/expenses");
+      res.redirect("/expense");
     })(req, res, next);
   }
 };
