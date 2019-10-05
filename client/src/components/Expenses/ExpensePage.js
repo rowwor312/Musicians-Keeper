@@ -36,6 +36,8 @@ const useStyles = makeStyles(theme => ({
 export default function ControlledExpansionPanels() {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
+    const[data,setData] = React.useState({});
+
 
     const handleChange = panel => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
@@ -49,12 +51,13 @@ export default function ControlledExpansionPanels() {
     useEffect(function onLoad() {
         const accessString = localStorage.getItem('JWT');
         axios.get("/api/expense",
-            { headers: { Authorization: `JWT ${accessString}` } }).then(res => {
+            { headers: { Authorization: `${accessString}` } }).then(res => {
                 console.log(res.data)
-                this.setState({ expenses: res.data })
+               setData(res.data)
+                
             })
     
-        })
+        },[])
 
     const setName = ((event) => {
         const { name, value } = event.target
