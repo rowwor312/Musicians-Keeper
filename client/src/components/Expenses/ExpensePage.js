@@ -120,7 +120,7 @@ export default function ControlledExpansionPanels() {
             //       this.setState({ loading: true });
               
             //       axios
-            //         .post(APP_URL + "/customer/index", {
+            //         .post(APP_URL + "/name/index", {
             //           page: state.page,
             //           pageSize: state.pageSize,
             //           sorted: state.sorted,
