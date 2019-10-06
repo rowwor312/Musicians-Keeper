@@ -102,18 +102,58 @@ export default function ControlledExpansionPanels() {
 
 
             })
+            // class App extends React.Component {
+            //     constructor(props) {
+            //       super(props);
+            //       this.state = { data: [], loading: false, pages: null };
+            //       this.fetchData = this.fetchData.bind(this);
+            //       this.reloadData = this.reloadData.bind(this);
+            //     }
+              
+            //     reloadData() {
+            //       this.fetchData(state);
+            //     }
+              
+            //     fetchData(state, instance) {
+            //       var self = this;
+              
+            //       this.setState({ loading: true });
+              
+            //       axios
+            //         .post(APP_URL + "/customer/index", {
+            //           page: state.page,
+            //           pageSize: state.pageSize,
+            //           sorted: state.sorted,
+            //           filtered: state.filtered
+            //         })
+            //         .then(function(response) {
+            //           // handle success
+            //           self.setState({
+            //             data: response.data.payload,
+            //             pages: 1,
+            //             loading: false
+            //           });
+            //         })
+            //         .catch(function(error) {
+            //           // handle error
+            //           console.log(error);
+            //         })
+            //         .finally(function() {
+            //           // always executed
+            //         });
+            //     }
+            //     render() {
+            //       return (
+            //         <div>
+            //           <CustomerForm reloadData={reloadData} />
+            //           <CustomerList data={data} pages={pages} loading={loading} fetchData={fetchData} />
+            //         </div>
+            //       );
+            //     }
+            //   }
+              
     })
 
-    // const saveProduct = ((product) => {
-    //     product.id = new Date().getTime();
-    //     this.setState((prevState) => {
-    //       let products = prevState.products;
-    //       products[product.id] = product;
-    //       return { products };
-    //     })
-
-    //     this.saveProduct = this.saveProduct.bind(this);
-    //     <ProductForm onSave={this.saveProduct} />
 
     return (
 
