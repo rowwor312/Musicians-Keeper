@@ -6,7 +6,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Navbar from "../Navbar";
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { TextField } from '@material-ui/core';
+import { TextField, Input, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@material-ui/core';
 import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
@@ -39,6 +39,10 @@ export default function ControlledExpansionPanels() {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
     const [data, setData] = React.useState([]);
+    const [openAdd, setOpenAdd] = React.useState(false);
+    const [openView, setOpenView] = React.useState(false);
+    const [category, setCategory] = React.useState(-1);
+    const [expense, setExpense] = React.useState(-1);
 
 
     const handleChange = panel => (event, isExpanded) => {
@@ -74,6 +78,46 @@ export default function ControlledExpansionPanels() {
             })
 
     }, [])
+
+    const addImg = (id, categoryId) => {
+        setCategory(categoryId);
+        setExpense(id);
+        setOpenAdd(true);
+    }
+    const handleCloseAdd = () => {
+        setOpenAdd(false);
+    }
+    const handleCloseView = () => {
+        setOpenView(false);
+    }
+    const viewImg = (id) => {
+        const accessString = localStorage.getItem('JWT');
+        axios.get("/api/expense/" + id + "/image", { headers: { Authorization: `${accessString}` } }).then(res => {
+            setOpenView(true);
+            document.querySelector("#view").src = res.data;
+        });
+    }
+
+    const fileOnChange = (e) => {
+        document.querySelector("#fileName").textContent = e.target.files[0].name;
+    }
+
+    const uploadImg = () => {
+        if(document.querySelector("#uploadFile").value !== ""){
+            const accessString = localStorage.getItem('JWT');
+            let imgData = new FormData();
+            imgData.set("image", document.querySelector("#uploadFile").files[0]);
+
+            axios.post("/api/expense/" + expense + "/image", imgData, { 
+                headers: { 
+                    Authorization: `${accessString}`,
+                    "Content-Type": "multipart/form-data"
+                } }).then(res => {
+                    console.log(res);
+                    setOpenAdd(false);
+                });
+        }
+    }
 
     const setName = ((event) => {
         const { name, value } = event.target
@@ -140,7 +184,7 @@ export default function ControlledExpansionPanels() {
                             <Button variant="contained" color="black" margin="normal" onClick={() => { handleInput(ele.id) }} className={`${classes.button}` + " formButton"} />
                         </Grid>
                         <Grid item xs={12}>
-                            <SpanningTable items={ele.Expenses} /> 
+                            <SpanningTable items={ele.Expenses} addImg={addImg} viewImg={viewImg} categoryId={ele.id} /> 
                         </Grid>
                     </Grid>
 
@@ -148,6 +192,50 @@ export default function ControlledExpansionPanels() {
                 </ExpansionPanelDetails>
             </ExpansionPanel>)
             })}
+            <Dialog open={openAdd} onClose={handleCloseAdd} aria-labelledby="form-dialog-title">
+                <DialogTitle id="form-dialog-title">Add Image</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        Pick an image to add:
+                    </DialogContentText>
+                    <Button
+                    variant="contained"
+                    component="label"
+                    >
+                    Add File
+                    <input
+                        type="file"
+                        accept="image/*"
+                        style={{ display: "none" }}
+                        id="uploadFile"
+                        onChange={fileOnChange}
+                    />
+                    </Button>
+                    <br/>
+                    <DialogContentText>
+                        <span id="fileName"></span>
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                <Button onClick={handleCloseAdd} color="primary">
+                    Cancel
+                </Button>
+                <Button onClick={uploadImg} color="primary">
+                    Upload
+                </Button>
+                </DialogActions>
+            </Dialog>
+            <Dialog open={openView} onClose={handleCloseView} aria-labelledby="form-dialog-title">
+                <DialogTitle id="form-dialog-title">Image</DialogTitle>
+                <DialogContent>
+                    <img id="view" alt="receipt"></img>
+                </DialogContent>
+                <DialogActions>
+                <Button onClick={handleCloseView} color="primary">
+                    Close
+                </Button>
+                </DialogActions>
+            </Dialog>
             
 
         </div>
