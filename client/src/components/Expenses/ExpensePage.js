@@ -56,9 +56,20 @@ export default function ControlledExpansionPanels() {
         const accessString = localStorage.getItem('JWT');
         axios.post("/api/expense",newExpense,
             { headers: { Authorization: `${accessString}` } }).then(res => {
-                console.log(res.data)
-               
-
+                let formattedData = res.data
+                formattedData.amount = parseFloat(formattedData.amount)
+                console.log(formattedData)
+                
+                let updatedData = [...data];
+                updatedData[formattedData.CategoryId-1].Expenses.push(formattedData)
+                console.log(updatedData)
+                // let newExpenses = data.concat([res.data])
+                // console.log(newExpenses)
+                // setData({ expenses: newExpenses, date: "", purchasedLocation: "", amount: "" })
+                setData(updatedData)
+                document.querySelector("#name"+id).value = "";
+                document.querySelector("#date"+id).value = "";
+                document.querySelector("#amount"+id).value = "";
             })
 
     }
@@ -96,61 +107,11 @@ export default function ControlledExpansionPanels() {
                     headers: { Authorization: `JWT ${accessString}` }
                 }
             }).then(res => {
+                console.log(res)
                 let newExpenses = this.state.expenses.concat([res.data])
                 this.setState({ expenses: newExpenses, date: "", purchasedLocation: "", amount: "" })
-
-
-
             })
-            // class App extends React.Component {
-            //     constructor(props) {
-            //       super(props);
-            //       this.state = { data: [], loading: false, pages: null };
-            //       this.fetchData = this.fetchData.bind(this);
-            //       this.reloadData = this.reloadData.bind(this);
-            //     }
-              
-            //     reloadData() {
-            //       this.fetchData(state);
-            //     }
-              
-            //     fetchData(state, instance) {
-            //       var self = this;
-              
-            //       this.setState({ loading: true });
-              
-            //       axios
-            //         .post(APP_URL + "/name/index", {
-            //           page: state.page,
-            //           pageSize: state.pageSize,
-            //           sorted: state.sorted,
-            //           filtered: state.filtered
-            //         })
-            //         .then(function(response) {
-            //           // handle success
-            //           self.setState({
-            //             data: response.data.payload,
-            //             pages: 1,
-            //             loading: false
-            //           });
-            //         })
-            //         .catch(function(error) {
-            //           // handle error
-            //           console.log(error);
-            //         })
-            //         .finally(function() {
-            //           // always executed
-            //         });
-            //     }
-            //     render() {
-            //       return (
-            //         <div>
-            //           <CustomerForm reloadData={reloadData} />
-            //           <CustomerList data={data} pages={pages} loading={loading} fetchData={fetchData} />
-            //         </div>
-            //       );
-            //     }
-            //   }
+
               
     })
 
