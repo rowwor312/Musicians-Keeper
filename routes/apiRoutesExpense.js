@@ -22,6 +22,18 @@ const s3 = new AWS.S3({
 
 const S3_BUCKET = process.env.BUCKET;
 
+const deleteExpense = (id, userId, res) => {
+  db.Expense.destroy({
+    where: {
+      id: id,
+      UserId: userId
+    }
+  })
+    .then(function(dbExpense) {
+      res.json(dbExpense);
+    });
+}
+
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -66,15 +78,29 @@ module.exports = function(app) {
 
   // DELETE route for deleting expenses
   app.delete("/api/expense/:id", jwtVerifier.confirmToken, jwtVerifier.verifyToken, function(req, res) {
-    db.Expense.destroy({
-      where: {
-        id: req.params.id,
-        UserId: req.userId
+    db.Expense.findOne({ where: {
+      id: req.params.id,
+      UserId: req.userId
+    }}).then(function(dbExpense) {
+      if(dbExpense) {
+
+        if(dbExpense.img){
+          s3.deleteObject({Bucket: S3_BUCKET, Key: dbExpense.img}, function(err, result) {
+            if(err) {
+              console.log(err);
+              return res.status(500).end();
+            }
+
+            deleteExpense(req.params.id, req.userId, res);
+          });
+        }
+        else
+          deleteExpense(req.params.id, req.userId, res);
       }
+      else
+        res.status(404).end();
     })
-      .then(function(dbExpense) {
-        res.json(dbExpense);
-      });
+    
   });
 
   // GET route for getting images
