@@ -6,7 +6,9 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-
+import { getThemeProps } from '@material-ui/styles';
+import { withRouter } from "react-router-dom";
+ 
 const useStyles = makeStyles(theme => ({
    
     Toolbar: {
@@ -28,8 +30,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function ButtonAppBar() {
+ function ButtonAppBar(props) {
   const classes = useStyles();
+
+  const logOut = ()=> {
+      localStorage.removeItem("JWT");
+     props.history.push("/signin")
+
+  }
 
   return (
     <div className={classes.root}>
@@ -41,9 +49,10 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title}>
             Musicians Keeper
           </Typography>
-          <Button color="inherit">LogOut</Button>
+          <Button onClick={ logOut }color="inherit">LogOut</Button>
         </Toolbar>
       </AppBar>
     </div>
   );
 }
+export default withRouter(ButtonAppBar);

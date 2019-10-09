@@ -72,6 +72,8 @@ module.exports = function(app) {
       CategoryId: req.body.categoryId
     })
       .then(function(dbExpense) {
+        dbExpense.img = false;
+
         res.json(dbExpense);
       });
   });
