@@ -12,6 +12,9 @@ import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import SpanningTable from '../SpanningTable';
 import Grid from '@material-ui/core/Grid';
+import Cookie from 'js-cookie';
+import { withRouter } from "react-router-dom";
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -35,7 +38,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function ControlledExpansionPanels() {
+function ControlledExpansionPanels(props) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
     const [data, setData] = React.useState([]);
@@ -56,20 +59,43 @@ export default function ControlledExpansionPanels() {
         const accessString = localStorage.getItem('JWT');
         axios.post("/api/expense",newExpense,
             { headers: { Authorization: `${accessString}` } }).then(res => {
-                console.log(res.data)
-               
-
+                let formattedData = res.data
+                formattedData.amount = parseFloat(formattedData.amount)
+                console.log(formattedData)
+                
+                let updatedData = [...data];
+                updatedData[formattedData.CategoryId-1].Expenses.push(formattedData)
+                console.log(updatedData)
+                // let newExpenses = data.concat([res.data])
+                // console.log(newExpenses)
+                // setData({ expenses: newExpenses, date: "", purchasedLocation: "", amount: "" })
+                setData(updatedData)
+                document.querySelector("#name"+id).value = "";
+                document.querySelector("#date"+id).value = "";
+                document.querySelector("#amount"+id).value = "";
             })
 
     }
 
 
     useEffect(function onLoad() {
+        if(Cookie.get("JWT")){
+            let token = Cookie.get("JWT");
+            Cookie.remove("JWT");
+            localStorage.setItem("JWT", "JWT "+ token);
+        }
+
+        if(localStorage.getItem("JWT") == null){
+            props.history.push("/signin");
+            return;
+        }
+        
         const accessString = localStorage.getItem('JWT');
         axios.get("/api/expense",
             { headers: { Authorization: `${accessString}` } }).then(res => {
                 console.log(res.data)
                 setData(res.data)
+                
 
             })
 
@@ -96,25 +122,25 @@ export default function ControlledExpansionPanels() {
                     headers: { Authorization: `JWT ${accessString}` }
                 }
             }).then(res => {
+                console.log(res)
                 let newExpenses = this.state.expenses.concat([res.data])
                 this.setState({ expenses: newExpenses, date: "", purchasedLocation: "", amount: "" })
-
-
-
             })
+
+              
     })
 
-    // const saveProduct = ((product) => {
-    //     product.id = new Date().getTime();
-    //     this.setState((prevState) => {
-    //       let products = prevState.products;
-    //       products[product.id] = product;
-    //       return { products };
-    //     })
+const handleDelete = (categoryId,id) => {
+    const accessString = localStorage.getItem('JWT');
+    axios.delete("/api/expense/" + id, { headers: { Authorization: `${accessString}` } }).then(res => {
+        let updatedData = [...data];
+      let newExpenses =  updatedData[categoryId-1].Expenses.filter(ele=>ele.id!==id);
+      updatedData[categoryId-1].Expenses=newExpenses;
+      setData(updatedData);
+        
+    })
 
-    //     this.saveProduct = this.saveProduct.bind(this);
-    //     <ProductForm onSave={this.saveProduct} />
-
+}
     return (
 
 
@@ -138,9 +164,11 @@ export default function ControlledExpansionPanels() {
                             <TextField id={"name" + ele.id} className={classes.textField} label="Name" margin="normal" />
                             <TextField id={"amount" + ele.id} className={classes.textField} label="Amount" margin="normal" />
                             <Button variant="contained" color="black" margin="normal" onClick={() => { handleInput(ele.id) }} className={`${classes.button}` + " formButton"} />
+                           
+        
                         </Grid>
                         <Grid item xs={12}>
-                            <SpanningTable items={ele.Expenses} /> 
+                            <SpanningTable items={ele.Expenses} handleDelete = {handleDelete} /> 
                         </Grid>
                     </Grid>
 
@@ -162,5 +190,5 @@ export default function ControlledExpansionPanels() {
 };
 
 
-
+export default withRouter(ControlledExpansionPanels);
 
