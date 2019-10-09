@@ -12,6 +12,8 @@ import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import SpanningTable from '../SpanningTable';
 import Grid from '@material-ui/core/Grid';
+import Cookie from 'js-cookie';
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -76,11 +78,18 @@ export default function ControlledExpansionPanels() {
 
 
     useEffect(function onLoad() {
+        if(Cookie.get("JWT")){
+            let token = Cookie.get("JWT");
+            Cookie.remove("JWT");
+            localStorage.setItem("JWT", "JWT "+ token);
+        }
+        
         const accessString = localStorage.getItem('JWT');
         axios.get("/api/expense",
             { headers: { Authorization: `${accessString}` } }).then(res => {
                 console.log(res.data)
                 setData(res.data)
+                
 
             })
 
