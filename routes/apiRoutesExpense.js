@@ -1,11 +1,9 @@
 // *********************************************************************************
-// api-routes.js - this file offers a set of routes for displaying and saving data to the db
+// apiRoutesExpense.js - this file offers a set of routes for displaying and saving data to the db
 // *********************************************************************************
 
 // Dependencies
 // =============================================================
-
-// Requiring our Todo model
 let db = require("../models");
 const jwtVerifier = require("../config/passport/jwt");
 const multer = require("multer");
@@ -22,6 +20,7 @@ const s3 = new AWS.S3({
 
 const S3_BUCKET = process.env.BUCKET;
 
+// Removes the expense from the Database
 const deleteExpense = (id, userId, res) => {
   db.Expense.destroy({
     where: {
@@ -72,7 +71,7 @@ module.exports = function(app) {
       CategoryId: req.body.categoryId
     })
       .then(function(dbExpense) {
-        dbExpense.img = false;
+        dbExpense.img = false; // No image exists yet for a just created expense.
 
         res.json(dbExpense);
       });
@@ -86,6 +85,7 @@ module.exports = function(app) {
     }}).then(function(dbExpense) {
       if(dbExpense) {
 
+        // Delete the image from S3
         if(dbExpense.img){
           s3.deleteObject({Bucket: S3_BUCKET, Key: dbExpense.img}, function(err, result) {
             if(err) {
@@ -113,7 +113,9 @@ module.exports = function(app) {
         UserId: req.userId
       }
     }).then(function(dbExpense){
+      // Check if expense and expense image exists
       if(dbExpense && dbExpense.img){
+        // Pass a signed URL back to the client
         s3.getSignedUrl("getObject", {Bucket: S3_BUCKET, Key: dbExpense.img, Expires: 60 * 3}, function(err, result){
           if(err){
             console.log(err);
@@ -134,6 +136,7 @@ module.exports = function(app) {
 
   // POST route for adding images
   app.post("/api/expense/:id/image", jwtVerifier.confirmToken, jwtVerifier.verifyToken, upload.single("image"), function(req, res) {
+    // Get the expense we want to add the image to.
     db.Expense.findOne({
       where: {
         id: req.params.id,
@@ -142,8 +145,10 @@ module.exports = function(app) {
     })
       .then(function(dbExpense){
         if(dbExpense){
+          // Create a key
           let key = "user" + req.userId + "/expense" + dbExpense.id + "." + req.file.mimetype.split("/")[1];
 
+          // Upload to S3
           s3.upload({
             Bucket: S3_BUCKET,
             Key: key,
@@ -155,6 +160,7 @@ module.exports = function(app) {
               return res.status(500).json(false);
             }
 
+            // update the expense with the images key
             db.Expense.update({ img: key }, { where: { id: dbExpense.id}} ).then(function() {
               res.status(200).json(true);
             }).catch(function(err){

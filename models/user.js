@@ -22,6 +22,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
+  // Associations for User
   User.associate = function(models) {
     User.hasMany(models.Expense, {
       onDelete: "cascade"

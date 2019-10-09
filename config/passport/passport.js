@@ -7,6 +7,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const db = require("../../models");
 
+// Local Register
 passport.use(
   "register",
   new LocalStrategy({
@@ -17,10 +18,13 @@ passport.use(
   },
   (req, username, password, done) => {
     try{
+      // Check if user already Exists
       db.User.findOne({ where: {username: username}}).then(user => {
+        // User Exists, send an error
         if(user != null)
           return done(null, false, { message: "username taken"});
         
+        // Hash the users password
         bcrypt.hash(password, BCRYPT_SALT_ROUNDS).then(hash =>{
           db.User.create({
             username: username,
@@ -40,6 +44,7 @@ passport.use(
   })
 );
 
+// Local Login
 passport.use(
   "login",
   new LocalStrategy({
@@ -52,6 +57,7 @@ passport.use(
       if(user === null)
         return done(null, false, { message: "Incorrect username or password"});
 
+      // Check the password against the hash
       bcrypt.compare(password, user.password).then(result => {
         if(result !== true)
           return done(null, false, { message: "Incorrect username or password"});
@@ -62,6 +68,7 @@ passport.use(
   })
 );
 
+// Google Strategy
 passport.use(
   "google",
   new GoogleStrategy({
@@ -71,6 +78,7 @@ passport.use(
     proxy: true
   },
   (accessToken, refreshToken, profile, done) => {
+    // Check if user already exists in the database, create if not.
     db.User.findOne({ where: { google: profile.id} }).then(user => {
       if(user)
         return done(null, user);

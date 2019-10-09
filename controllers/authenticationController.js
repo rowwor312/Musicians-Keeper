@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 require("../config/passport/passport");
 
 module.exports = {
+  // Local Strategy Register
   registerUser: (req, res, next) => {
     passport.authenticate("register", (err, user, info) =>{
       if(err){
@@ -18,6 +19,7 @@ module.exports = {
         res.status(201).send({ message: "Created" });
     })(req, res, next);
   },
+  // Local Strategy Login
   loginUser: (req, res, next) => {
     passport.authenticate("login", (err, user, info) => {
       if(err)
@@ -36,6 +38,7 @@ module.exports = {
       }
     })(req, res, next);
   },
+  // Google Strategy Authorization
   googleAuth: (req, res, next) => {
     passport.authenticate("google", {
       scope: [
@@ -44,6 +47,7 @@ module.exports = {
       ]
     })(req, res, next);
   },
+  // Google Strategy Callback
   googleCallback: (req, res, next) => {
     passport.authenticate("google", (err, user, info) => {
       const token = jwt.sign({ id: user.id }, jwtConfig.secret, {
