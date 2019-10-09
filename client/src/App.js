@@ -10,7 +10,7 @@ function App() {
       <Router>
       <div>
         <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/signin" component={SignIn} />
+        <Route exact path={["/", "/signin"]} component={SignIn} />
         <Route exact path="/expense" component={ControlledExpansionPanels} />
       </div>
     </Router>

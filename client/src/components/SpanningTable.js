@@ -36,12 +36,20 @@ function total(items) {
 export default function SpanningTable(props) {
     const classes = useStyles();
 
+    const viewImg = (id) =>  {
+        props.viewImg(id);
+    };
+
+    const addImg = (id) => {
+        props.addImg(id, props.categoryId);
+    };
+
     return (
         <Paper className={classes.root}>
             <Table className={classes.table}>
                 <TableHead>
                     <TableRow>
-                       
+                        <TableCell>Image</TableCell>
                         <TableCell align="right">Date</TableCell>
                         <TableCell align="right">Name</TableCell>
                         <TableCell align="right">Amount</TableCell>
@@ -51,7 +59,7 @@ export default function SpanningTable(props) {
                 <TableBody>
                     {props.items.map(row => (
                         <TableRow key={row.name}>
-
+                            <TableCell><Button onClick={row.img ? () => { viewImg(row.id) } : () => { addImg(row.id) }}>{row.img ? "View" : "Add"}</Button></TableCell>
                             <TableCell align="right">{moment(row.date).format("MM/DD/YYYY")}</TableCell>
                             <TableCell align="right">{row.name}</TableCell>
                             <TableCell align="right">{ccyFormat(row.amount)}</TableCell>
@@ -60,7 +68,7 @@ export default function SpanningTable(props) {
                     ))}
 
                     <TableRow>
-                        <TableCell colSpan={2}>Total</TableCell>
+                        <TableCell colSpan={3} align="right">Total</TableCell>
                         <TableCell align="right">{ccyFormat(total(props.items))}</TableCell>
                     </TableRow>
                 </TableBody>
