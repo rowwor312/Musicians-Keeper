@@ -118,7 +118,11 @@ export default function ControlledExpansionPanels() {
 const handleDelete = (categoryId,id) => {
     const accessString = localStorage.getItem('JWT');
     axios.delete("/api/expense/" + id, { headers: { Authorization: `${accessString}` } }).then(res => {
-        console.log(res.data)
+        let updatedData = [...data];
+      let newExpenses =  updatedData[categoryId-1].Expenses.filter(ele=>ele.id!==id);
+      updatedData[categoryId-1].Expenses=newExpenses;
+      setData(updatedData);
+        
     })
 
 }
