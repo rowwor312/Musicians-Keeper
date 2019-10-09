@@ -15,6 +15,7 @@ module.exports = function(sequelize, DataTypes) {
     img: DataTypes.STRING
   });
 
+  // Associations For Expense
   Expense.associate = function(models) {
     Expense.belongsTo(models.User, {
       foreignKey: {

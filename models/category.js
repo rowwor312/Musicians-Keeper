@@ -8,6 +8,7 @@ module.exports = function(sequelize, DataTypes) {
     description: DataTypes.STRING
   });
 
+  // Associations for Category
   Category.associate = function(models) {
     Category.hasMany(models.Expense);
   }
