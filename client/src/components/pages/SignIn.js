@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(https://files.slack.com/files-pri/THCKMU1NG-FNYC5KF1B/guitar-1940733_1280.jpg)',
+    backgroundImage: 'url(https://images.reverb.com/image/upload/s--SeG3athV--/f_auto,t_large/v1476798858/sys3kucjaw4g2ypqjhq1.jpg)',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -64,30 +64,34 @@ function SignIn(props) {
   const classes = useStyles();
 
   const handleSubmit = (e) => {
-    e.preventDefault(); 
-  
-   const loginObj ={
-     username: document.querySelector("#username").value,
-     password: document.querySelector("#password").value,
+    e.preventDefault();
+
+    const loginObj = {
+      username: document.querySelector("#username").value,
+      password: document.querySelector("#password").value,
     };
-    axios.post("/login", loginObj) 
-   .then((response) => {
+    axios.post("/login", loginObj)
+      .then((response) => {
         localStorage.setItem("JWT", "JWT " + response.data.token);
 
         props.history.push("/expense");
       })
-    .catch((error) => {
+      .catch((error) => {
       })
   }
 
 
   return (
-    
+
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
+          <Typography component="h1" variant="h5">
+            Musician's Keeper
+           </Typography>
+
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
@@ -117,10 +121,6 @@ function SignIn(props) {
               id="password"
               autoComplete="current-password"
             />
-            {/* <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            /> */}
             <Button
               type="submit"
               fullWidth
@@ -136,19 +136,13 @@ function SignIn(props) {
 
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
             </Grid>
-            <Box mt={5}>
-              <Copyright />
-            </Box>
           </form>
         </div>
       </Grid>
