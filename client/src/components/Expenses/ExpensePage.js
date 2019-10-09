@@ -13,6 +13,7 @@ import axios from 'axios';
 import SpanningTable from '../SpanningTable';
 import Grid from '@material-ui/core/Grid';
 import Cookie from 'js-cookie';
+import { withRouter } from "react-router-dom";
 
 
 
@@ -37,7 +38,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function ControlledExpansionPanels() {
+function ControlledExpansionPanels(props) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
     const [data, setData] = React.useState([]);
@@ -82,6 +83,11 @@ export default function ControlledExpansionPanels() {
             let token = Cookie.get("JWT");
             Cookie.remove("JWT");
             localStorage.setItem("JWT", "JWT "+ token);
+        }
+
+        if(localStorage.getItem("JWT") == null){
+            props.history.push("/signin");
+            return;
         }
         
         const accessString = localStorage.getItem('JWT');
@@ -184,5 +190,5 @@ const handleDelete = (categoryId,id) => {
 };
 
 
-
+export default withRouter(ControlledExpansionPanels);
 
