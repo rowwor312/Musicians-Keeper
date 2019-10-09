@@ -27,7 +27,7 @@ function ccyFormat(num) {
     return `${num.toFixed(2)}`;
 }
 
-
+//totals table amount 
 
 function total(items) {
     return items.map(({ amount }) => amount).reduce((sum, i) => sum + i, 0);
