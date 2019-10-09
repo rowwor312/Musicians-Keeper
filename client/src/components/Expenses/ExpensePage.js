@@ -12,7 +12,7 @@ import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import SpanningTable from '../SpanningTable';
 import Grid from '@material-ui/core/Grid';
-import DeleteIcon from '@material-ui/icons/Delete';
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -115,7 +115,13 @@ export default function ControlledExpansionPanels() {
               
     })
 
+const handleDelete = (categoryId,id) => {
+    const accessString = localStorage.getItem('JWT');
+    axios.delete("/api/expense/" + id, { headers: { Authorization: `${accessString}` } }).then(res => {
+        console.log(res.data)
+    })
 
+}
     return (
 
 
@@ -139,11 +145,11 @@ export default function ControlledExpansionPanels() {
                             <TextField id={"name" + ele.id} className={classes.textField} label="Name" margin="normal" />
                             <TextField id={"amount" + ele.id} className={classes.textField} label="Amount" margin="normal" />
                             <Button variant="contained" color="black" margin="normal" onClick={() => { handleInput(ele.id) }} className={`${classes.button}` + " formButton"} />
-                            {/* <IconButton className={classes.button} aria-label="delete"> */}
+                           
         
                         </Grid>
                         <Grid item xs={12}>
-                            <SpanningTable items={ele.Expenses} /> 
+                            <SpanningTable items={ele.Expenses} handleDelete = {handleDelete} /> 
                         </Grid>
                     </Grid>
 

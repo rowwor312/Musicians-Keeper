@@ -7,6 +7,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import moment from 'moment';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Button from '@material-ui/core/Button';
 
 const TAX_RATE = 0.07;
 
@@ -43,6 +45,7 @@ export default function SpanningTable(props) {
                         <TableCell align="right">Date</TableCell>
                         <TableCell align="right">Name</TableCell>
                         <TableCell align="right">Amount</TableCell>
+                        <TableCell align="right">Delete</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -52,6 +55,7 @@ export default function SpanningTable(props) {
                             <TableCell align="right">{moment(row.date).format("MM/DD/YYYY")}</TableCell>
                             <TableCell align="right">{row.name}</TableCell>
                             <TableCell align="right">{ccyFormat(row.amount)}</TableCell>
+                            <TableCell align="right"> <Button onClick = {()=> {props.handleDelete(row.CategoryId,row.id)}} > <DeleteIcon /></Button></TableCell>
                         </TableRow>
                     ))}
 
