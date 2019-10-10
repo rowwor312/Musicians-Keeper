@@ -16,7 +16,7 @@ import Cookie from 'js-cookie';
 import { withRouter } from "react-router-dom";
 
 
-
+//Setting up use stylyes for design is from material UI 
 const useStyles = makeStyles(theme => ({
     root: {
         width: '100%',
@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-
+//Setting up Expansion panels 
 function ControlledExpansionPanels(props) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
@@ -47,12 +47,13 @@ function ControlledExpansionPanels(props) {
     const [category, setCategory] = React.useState(-1);
     const [expense, setExpense] = React.useState(-1);
 
-
+//Function for when it is expanded 
     const handleChange = panel => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
 
     };
 
+    //handle input to new expense 
     const handleInput = (id) => {
         let newExpense= {
             name:document.querySelector("#name"+id).value,
@@ -81,7 +82,7 @@ function ControlledExpansionPanels(props) {
 
     }
 
-
+//use effect hook for JWT on load 
     useEffect(function onLoad() {
         if(Cookie.get("JWT")){
             let token = Cookie.get("JWT");
@@ -93,7 +94,7 @@ function ControlledExpansionPanels(props) {
             props.history.push("/signin");
             return;
         }
-        
+        //get call item using JWT 
         const accessString = localStorage.getItem('JWT');
         axios.get("/api/expense",
             { headers: { Authorization: `${accessString}` } }).then(res => {
@@ -104,7 +105,7 @@ function ControlledExpansionPanels(props) {
             })
 
     }, [])
-
+//adding image
     const addImg = (id, categoryId) => {
         setCategory(categoryId);
         setExpense(id);
@@ -123,7 +124,7 @@ function ControlledExpansionPanels(props) {
             document.querySelector("#view").src = res.data;
         });
     }
-
+//reset document after expense is submitted 
     const fileOnChange = (e) => {
         document.querySelector("#fileName").textContent = e.target.files[0].name;
     }
@@ -178,7 +179,7 @@ function ControlledExpansionPanels(props) {
 
               
     })
-
+//delete element by id 
 const handleDelete = (categoryId,id) => {
     const accessString = localStorage.getItem('JWT');
     axios.delete("/api/expense/" + id, { headers: { Authorization: `${accessString}` } }).then(res => {
@@ -192,7 +193,7 @@ const handleDelete = (categoryId,id) => {
 }
     return (
 
-
+//Expansion panel dislay 
         <div className={classes.root}>
             <Navbar />
             {data.map((ele, idx) => {
