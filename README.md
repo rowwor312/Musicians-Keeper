@@ -12,10 +12,13 @@ folder and add to table. After picture is added simply click view to see the rec
 
 Technologies used React JS, Material UI, Google OAuth, MySQL, S3
 
-![UI DISPLAY] (IMG/mk1.png)
+#UI-DISPLAY
+![UI DISPLAY](IMG/mk1.png)
 
-![EXPENSE ADDED] (IMG/mk2.png)
+EXPENSE-ADDED
+![EXPENSE ADDED](IMG/mk2.png)
 
-![SIGNIN PAGE] (IMG/mk3.png)
+SIGNIN-PAGE
+![SIGNIN PAGE](IMG/mk3.png)
 
 
